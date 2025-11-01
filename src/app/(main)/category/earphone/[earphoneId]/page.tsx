@@ -10,14 +10,16 @@ import FirstSection from "./component/firstSection";
 import SecondSection from "./component/secondSection";
 import ThirdSection from "./component/thirdSection";
 import LastContent from "./component/lastContent";
+import ProductView from "@/app/_productview/productView";
 export default function ProductDetailPage() {
   return (
-    <section className="flex items-center flex-col mx-auto ">
+    <section className="relative flex items-center flex-col mx-auto ">
       <FirstSection />
-
       <SecondSection />
       <ThirdSection />
       <LastContent />
+      <ProductView />
+      <div className="absolute inset-0 bg-black/50"></div>
     </section>
   );
 }

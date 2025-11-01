@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
-import Header from "@/_header/Header";
-import Footer from "@/_footer/footer";
-import LastPartofLandingPage from "@/lastpartodLanding/lastPartofLandingPage";
-import SecondtothelastPart from "@/secondtothelastPart/secondtothelastPart";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,13 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}
       >
-        <Header />
         {children}
-        <div className="mb-[100px]">
-          <SecondtothelastPart />
-        </div>
-        <LastPartofLandingPage />
-        <Footer />
       </body>
     </html>
   );
