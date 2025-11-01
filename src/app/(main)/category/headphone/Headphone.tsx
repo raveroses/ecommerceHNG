@@ -1,23 +1,21 @@
 "use client";
 import ProductComponent from "@/app/_product/productComponent";
-import { api } from "../../../../../convex/_generated/api";
 import { useQuery } from "convex/react";
-const Earphone = () => {
+import { api } from "../../../../../convex/_generated/api";
+const Headphone = () => {
   const products = useQuery(api.product.getProducts);
-
   if (!products) {
     return <div>Loading...</div>;
   }
-
-  const earphone = products.filter(
-    (product) => product.category === "earphone"
+  const headphone = products.filter(
+    (product) => product.category === "headphone"
   );
 
   return (
     <section className="mx-auto">
-      <ProductComponent product={earphone ?? []} />
+      <ProductComponent product={headphone ?? []} />
     </section>
   );
 };
 
-export default Earphone;
+export default Headphone;

@@ -12,11 +12,19 @@ export type HeroCardProps = {
 };
 
 export type ProductsTypes = {
-  productImage: string;
-  productHeading: string;
-  productDescription: string;
+  _id: string;
+  _creationTime: number;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  category: string;
+  stock?: number;
 };
-
 export interface ProductComponentProps {
   product: ProductsTypes[];
+}
+
+export interface independentProduct {
+  product: ProductsTypes;
 }

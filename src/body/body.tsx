@@ -24,7 +24,15 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="w-[1110px] h-[320px] bg-[#dddddd] flex justify-between items-center mx-auto pl-[100px]">
+      <div
+        className="w-[1110px] h-[320px] bg-[#dddddd] flex justify-between items-center mx-auto pl-[100px]"
+        style={{
+          backgroundImage: `url("/images/stand.png")`,
+          backgroundPosition: "right bottom",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
         <div className="w-[204px] h-[118px]">
           <h2 className="text-[28px] leading-[100%] font-[700] ">
             ZX7 SPEAKER
@@ -34,9 +42,9 @@ const Body = () => {
           </button>
         </div>
 
-        <div className="w-[410.23px] h-[300px] relative overflow-hidden z-[30px]">
-          <Image src="/images/speaker2.jpg" alt="speaker-image" fill />
-        </div>
+        {/* <div className="w-[410.23px] h-[300px] relative overflow-hidden z-[30px]">
+          <Image src="/images/stand.png" alt="speaker-image" fill />
+        </div> */}
       </div>
 
       <section className="w-[1110px] h-[320px] flex items-center mx-auto my-[100px]">
