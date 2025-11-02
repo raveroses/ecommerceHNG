@@ -3,7 +3,18 @@ import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
 import { FiMinus } from "react-icons/fi";
 import { independentProduct } from "@/_types/types";
+import { useState } from "react";
 const FirstSection = ({ product }: independentProduct) => {
+  const [quantity, setQuantity] = useState<number>(1);
+
+  const handleIncrement = () => {
+    setQuantity((prev) => prev + 1);
+  };
+  const handleDecrement = () => {
+    setQuantity((prev) => Math.max(1, prev - 1));
+  };
+  // prev - 1
+  console.log(quantity);
   return (
     <section className="w-[1110px] h-[560px] flex gap-[50px] my-[100px] items-center">
       <div className="w-[540px] h-[560px] bg-[#f1f1f1]">
@@ -25,11 +36,11 @@ const FirstSection = ({ product }: independentProduct) => {
 
         <div className="buttons flex w-[296px] h-[48px] gap-[10px]">
           <div className="flex items-center justify-between w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-[#f1f1f1] px-[5px] text-[20px] font-bold">
-            <button>
+            <button onClick={handleDecrement}>
               <FiMinus />
             </button>
-            <span>1</span>
-            <button>
+            <span>{quantity}</span>
+            <button onClick={handleIncrement}>
               <FaPlus />
             </button>
           </div>

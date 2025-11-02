@@ -36,7 +36,7 @@ export default async function ProductDetailPage({
       <ThirdSection />
       <LastContent />
       <ProductView />
-      <div className="absolute inset-0 bg-black/50"></div>
+      {/* <div className="absolute inset-0 bg-black/50"></div> */}
     </section>
   );
 }
