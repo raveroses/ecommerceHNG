@@ -5,7 +5,6 @@ export default function Home() {
       <div className="mt-[100px]">
         <Body />
       </div>
-
     </div>
   );
 }

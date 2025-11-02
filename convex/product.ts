@@ -11,7 +11,7 @@ export const addProduct = mutation({
     stock: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
-    const productId = await ctx.db.insert("product", args);
+    const productId = await ctx.db.insert("orders", args);
     return productId;
   },
 });

@@ -12,8 +12,8 @@ const ProductComponent = ({ product }: ProductComponentProps) => {
   const productListing = product.map((product, index) => {
     return (
       <div
-        className={`flex w-[1110px] h-[560px] items-center gap-[80px] ${
-          index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+        className={`flex md:w-[1110px] md:h-[560px] items-center gap-[80px] flex-col md:text-left text-center ${
+          index % 2 === 0 ? "md:flex-row " : "md:flex-row-reverse"
         } `}
         key={index}
       >
@@ -34,7 +34,7 @@ const ProductComponent = ({ product }: ProductComponentProps) => {
             {product.description}
           </p>
           <button
-            className="w-[160px] h-[48px] bg-[#d87d4a] text-[13px] leading-[100%] tracking-[1px] text-white "
+            className="w-[160px] h-[48px] bg-[#d87d4a] text-[13px] leading-[100%] tracking-[1px] text-white md:mx-0 mx-auto "
             onClick={() => handleRouting(product.category, product._id)}
           >
             SEE PRODUCTS

@@ -12,6 +12,8 @@ const SecondtothelastPart = () => {
       shopLink: "/category/headphone",
       top: -30,
       left: 120,
+      mobileTop: -10,
+      mobileLeft: 150,
     },
     {
       cardname: "SPEAKERS",
@@ -19,6 +21,8 @@ const SecondtothelastPart = () => {
       shopLink: "/category/speaker",
       top: -30,
       left: 120,
+      mobileTop: -10,
+      mobileLeft: 150,
     },
     {
       cardname: "EARPHONES",
@@ -26,6 +30,8 @@ const SecondtothelastPart = () => {
       shopLink: "/category/earphone",
       top: -30,
       left: 120,
+      mobileTop: -10,
+      mobileLeft: 150,
     },
   ]);
 
@@ -33,11 +39,19 @@ const SecondtothelastPart = () => {
     return (
       <div
         key={index}
-        className="w-[350px] h-[263px] relative bg-[#F1F1F1] flex gap-[350px] flex-col mx-auto text-center rounded-[8px] "
+        className="relative md:w-[350px] md:h-[263px] h-[250px] w-full bg-[#F1F1F1] flex md:gap-[350px] my-10 flex-col mx-auto md:text-left text-center rounded-[8px] "
       >
         <div
           className={`image absolute w-[125px] h-[126px]  `}
-          style={{ top: card.top, left: card.left }}
+          // style={{
+          //   top: card.top,
+          //   left: card.left,
+          // }}
+          style={
+            window.innerWidth > 768
+              ? { top: card.top, left: card.left }
+              : { top: card.mobileTop, left: card.mobileLeft }
+          }
         >
           <Image
             src={card.cardImage}
@@ -63,7 +77,7 @@ const SecondtothelastPart = () => {
     );
   });
   return (
-    <div className="threeCards flex w-[1110px] h-[284px] justify-between mx-auto">
+    <div className="threeCards flex md:w-[1110px] w-full md:h-[284px]  md:flex-row flex-col justify-between mx-auto">
       {cardmap}
     </div>
   );

@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import { ConvexClientProvider } from "@/custom hooks/ConvexClientProvider";
 import "./globals.css";
+import Header from "@/_header/Header";
+import SecondtothelastPart from "@/secondtothelastPart/secondtothelastPart";
+import LastPartofLandingPage from "@/lastpartodLanding/lastPartofLandingPage";
+import Footer from "@/_footer/footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,9 +34,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased md:w-[1440px] w-[768px]`}
       >
-        <ConvexClientProvider>{children}</ConvexClientProvider>
+        <ConvexClientProvider>
+          <Header />
+          {children}
+          <div className="mb-[100px]">
+            <SecondtothelastPart />
+          </div>
+          <LastPartofLandingPage />
+          <Footer />
+        </ConvexClientProvider>
       </body>
     </html>
   );

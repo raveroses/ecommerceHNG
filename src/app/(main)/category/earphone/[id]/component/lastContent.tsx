@@ -10,6 +10,8 @@ const LastContent = () => {
       shopLink: "/",
       top: -30,
       left: 120,
+      mobileTop: -10,
+      mobileLeft: 150,
     },
     {
       cardname: "ZX9 SPEAKER",
@@ -17,6 +19,8 @@ const LastContent = () => {
       shopLink: "/",
       top: -30,
       left: 120,
+      mobileTop: -10,
+      mobileLeft: 150,
     },
     {
       cardname: "XX59",
@@ -24,14 +28,19 @@ const LastContent = () => {
       shopLink: "/",
       top: -30,
       left: 120,
+      mobileTop: -10,
+      mobileLeft: 150,
     },
   ]);
 
   const cardmap = cards.map((card, index) => {
     return (
-      <div key={index} className="flex justify-center flex-col gap-[50px]">
-        <div className="w-[350px] h-[318px] bg-[#F1F1F1] px-[90px] mx-[10px] justify-center flex flex-col rounded-[8px] py-[40px]">
-          <div className="w-[200px] h-[200px]  overflow-hidden relative">
+      <div
+        key={index}
+        className="flex justify-center flex-col gap-[50px] md:bg-transparent bg-[#F1F1F1] md:my-0 my-5 md:py-0 py-10"
+      >
+        <div className="md:w-[350px] md:h-[318px] w-full md:bg-[#F1F1F1]  bg-transparent md:px-[90px] md:mx-[10px] justify-center flex flex-col rounded-[8px] py-[40px]">
+          <div className="w-[200px] h-[200px] mx-auto overflow-hidden relative">
             <Image
               src={card.cardImage}
               alt="gadgetimage"
@@ -53,7 +62,7 @@ const LastContent = () => {
     );
   });
   return (
-    <div className="threeCards flex w-[1110px] h-[284px] justify-between mx-auto my-[250px]">
+    <div className="threeCards flex md:w-[1110px] md:h-[284px] w-full md:justify-between justify-center md:flex-row flex-col  mx-auto my-[250px]">
       {cardmap}
     </div>
   );

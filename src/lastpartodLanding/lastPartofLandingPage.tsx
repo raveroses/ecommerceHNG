@@ -1,7 +1,7 @@
 import Image from "next/image";
 const LastPartofLandingPage = () => {
   return (
-    <section className="last w-[1110px] h-[588px] flex items-center gap-[200px] mx-auto">
+    <section className="last md:w-[1110px] md:h-[588px] w-full flex md:flex-row flex-col items-center md:gap-[200px] gap-[100px] mx-auto md:text-left text-center">
       <div className="w-[445px] h-[295px]">
         <h2 className="uppercase font-[700] text-[40px] leading-[44px] tracking-[1.43px] pb-[40px]">
           Bringing you the <span className="text-[#d87d4a]">best</span> audio
@@ -16,7 +16,7 @@ const LastPartofLandingPage = () => {
           best place to buy your portable audio equipment.
         </p>
       </div>
-      <div className="w-[540px] h-[588px] relative overflow-hidden z-[30px]">
+      <div className="md:w-[540px] w-full h-[588px] relative overflow-hidden z-[30px]">
         <Image src="/images/listeing.jpg" alt="speaker-image" fill />
       </div>
     </section>

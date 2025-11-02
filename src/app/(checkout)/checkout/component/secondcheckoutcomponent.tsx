@@ -2,8 +2,8 @@
 import Image from "next/image";
 const SecondCheckouComponent = () => {
   return (
-    <section className=" rounded-xl p-[15px] w-[350px] h-[612px] bg-[#f1f1f1]">
-      <div className="w-[313px] h-[25px] flex justify-between">
+    <section className=" rounded-xl p-[15px] md:w-[350px] w-full h-[612px] bg-[#f1f1f1]">
+      <div className="md:w-[313px] w-full h-[25px] flex justify-between">
         <div className="text-[18px] leading-[100%] tracking-[1.29px] font-[700] uppercase">
           SUMMARY
         </div>
@@ -31,8 +31,8 @@ const SecondCheckouComponent = () => {
         </div>
       </div>
 
-      <div className="flex gap-[20px] flex-col">
-        <div className="w-[308px] h-[25px] flex justify-between">
+      <div className="flex gap-[20px] flex-col ">
+        <div className="md:w-[308px] w-full h-[25px] flex justify-between">
           <p className="text-[14px] leading-[25px] tracking-[0px] font-[400]">
             TOTAL
           </p>
@@ -40,7 +40,7 @@ const SecondCheckouComponent = () => {
             $ 5,396
           </h1>
         </div>
-        <div className="w-[308px] h-[25px] flex justify-between">
+        <div className="md:w-[308px] w-full h-[25px] flex justify-between">
           <p className="text-[14px] leading-[25px] tracking-[0px] font-[400]">
             SHIPPING
           </p>
@@ -48,7 +48,7 @@ const SecondCheckouComponent = () => {
             $ 5,396
           </h1>
         </div>
-        <div className="w-[308px] h-[25px] flex justify-between">
+        <div className="md:w-[308px] w-full h-[25px] flex justify-between">
           <p className="text-[14px] leading-[25px] tracking-[0px] font-[400]">
             VAT (INCLUDED)
           </p>
@@ -56,7 +56,7 @@ const SecondCheckouComponent = () => {
             $ 5,396
           </h1>
         </div>
-        <div className="w-[308px] h-[25px] flex justify-between">
+        <div className="md:w-[308px] w-full h-[25px] flex justify-between">
           <p className="text-[14px] leading-[25px] tracking-[0px] font-[400]">
             GRAND TOTAL
           </p>
@@ -65,7 +65,7 @@ const SecondCheckouComponent = () => {
           </h1>
         </div>
       </div>
-      <button className="w-[284px] h-[48px] bg-[#FBAF85] text-[13px] leading-[100%] tracking-[1px] font-[700] text-align text-white mt-[20px] mx-[15px]">
+      <button className="md:w-[284px] w-full h-[48px] bg-[#FBAF85] text-[13px] leading-[100%] tracking-[1px] font-[700] text-align text-white mt-[20px] md:mx-[15px] mx-1">
         checkout
       </button>
     </section>

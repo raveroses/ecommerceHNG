@@ -11,21 +11,15 @@ export default defineSchema({
     stock: v.optional(v.number()),
   }),
 
-  userDetail: defineTable({
-    name: v.string(),
-    email: v.string(),
-    address: v.optional(v.string()),
-  }),
-
   orders: defineTable({
-    userId: v.id("userDetail"),
-    products: v.array(
-      v.object({
-        productId: v.id("product"),
-        quantity: v.number(),
-      })
-    ),
-    total: v.number(),
-    status: v.string(), // "pending", "completed", "cancelled"
+    name: v.string(),
+    description: v.string(),
+    price: v.number(),
+    image: v.string(),
+    category: v.string(),
+    userName: v.string(),
+    email: v.string(),
+    address: v.string(),
+    zipCode: v.string(),
   }),
 });

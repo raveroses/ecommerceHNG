@@ -6,11 +6,14 @@ const Body = () => {
     <section className="">
       <SecondtothelastPart />
 
-      <div className="h-[560px] w-[1110px] bg-[#D87D4A] radius-[8px] mx-auto my-[100px] px-[30px] pt-[30px] text-white flex justify-between items-center">
+      <div
+        className="md:h-[560px] md:w-[1110px] py-20 w-full bg-[#D87D4A] radius-[8px] mx-auto my-[100px] px-[80px] md:px-[150px] pt-[30px] text-white 
+      flex md:flex-row flex-col md:justify-start justify-center items-center md:gap-[70px] gap-[50px]"
+      >
         <div className="w-[410.23px] h-[493px] relative overflow-hidden">
           <Image src="/images/speaker2.jpg" alt="speaker-image" fill />
         </div>
-        <div className="w-[349px] h-[303px]">
+        <div className="md:w-[349px] md:h-[303px] md:text-left text-center ">
           <h2 className=" text-[56px] leading-[58px] tracking-[2px] font-[700]">
             ZX9 SPEAKER
           </h2>
@@ -18,14 +21,14 @@ const Body = () => {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <button className="w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-black text-white ">
+          <button className="w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-black text-white mx-auto ">
             SEE PRODUCTS
           </button>
         </div>
       </div>
 
       <div
-        className="w-[1110px] h-[320px] bg-[#dddddd] flex justify-between items-center mx-auto pl-[100px]"
+        className="md:w-[1110px] h-[320px] w-full bg-[#dddddd] flex justify-between items-center mx-auto pl-[100px]"
         style={{
           backgroundImage: `url("/images/stand.png")`,
           backgroundPosition: "right bottom",
@@ -47,11 +50,11 @@ const Body = () => {
         </div> */}
       </div>
 
-      <section className="w-[1110px] h-[320px] flex items-center mx-auto my-[100px]">
-        <div className="w-[540px] h-[320px] relative overflow-hidden z-[30px]">
+      <section className="md:w-[1110px] md:h-[320px] w-[600px] w-full flex md:flex-row flex-col items-center mx-auto my-[100px]">
+        <div className="md:w-[540px] md:h-[320px] w-full h-[400px] relative overflow-hidden z-[30px]">
           <Image src="/images/openearpord.jpg" alt="speaker-image" fill />
         </div>
-        <div className="w-[540px] h-[320px] bg-[#dddddd] flex flex-col gap-[30px] justify-center mx-auto text-center">
+        <div className="md:w-[540px] w-full md:h-[320px] h-[400px] bg-[#dddddd] flex flex-col gap-[30px] justify-center mx-auto text-center">
           <h2 className="text-[28px] leading-[100%] font-[700] ">
             YX1 EARPHONES
           </h2>

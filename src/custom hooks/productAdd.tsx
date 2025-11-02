@@ -2,17 +2,11 @@
 // import { api } from "../../convex/_generated/api";
 
 // export default function ProductAdd() {
-//   const addProduct = useMutation(api.product.addProduct);
+//   const addProduct = useMutation(api.orders.addProduct);
 
-//   const handleInserData = async () => {
-//     await addProduct({
-//       name: "XX99 Mark II Headphones",
-//       description: "Experience natural, lifelike audio...",
-//       price: 2999,
-//       image: "/images/headphones.jpg",
-//       category: "headphones",
-//     });
+//   const handleProduct = async () => {
+//     await addProduct({});
 //   };
 
-//   return {}
+//   return {};
 // }

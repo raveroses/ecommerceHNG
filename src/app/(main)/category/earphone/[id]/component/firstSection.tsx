@@ -4,6 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import { FiMinus } from "react-icons/fi";
 import { independentProduct } from "@/_types/types";
 import { useState } from "react";
+import { useMyContext } from "@/custom hooks/useMyContext";
 const FirstSection = ({ product }: independentProduct) => {
   const [quantity, setQuantity] = useState<number>(1);
 
@@ -13,17 +14,22 @@ const FirstSection = ({ product }: independentProduct) => {
   const handleDecrement = () => {
     setQuantity((prev) => Math.max(1, prev - 1));
   };
-  // prev - 1
+
+  const { addToCart, cart } = useMyContext();
+
+  const totalPrice = product.price * quantity;
   console.log(quantity);
+  console.log(cart);
+
   return (
-    <section className="w-[1110px] h-[560px] flex gap-[50px] my-[100px] items-center">
-      <div className="w-[540px] h-[560px] bg-[#f1f1f1]">
+    <section className="md:w-[1110px] md:h-[560px] w-full flex flex-col md:flex-row gap-[50px] my-[100px] items-center md:text-left text-center">
+      <div className="md:w-[540px] w-full h-[560px] bg-[#f1f1f1]">
         <div className="w-[300px] h-[300px] relative overflow-hidden z-[30px] mx-auto my-[100px]">
           <Image src={product.image} alt="speaker-image" fill />
         </div>
       </div>
 
-      <div className="w-[444.5px] h-[407px] flex flex-col gap-[35px]">
+      <div className="md:w-[444.5px] md:h-[407px] w-full flex flex-col gap-[35px]">
         <h2 className=" text-[56px] leading-[58px] tracking-[2px] font-[700] uppercase">
           {product.name}
         </h2>
@@ -31,10 +37,10 @@ const FirstSection = ({ product }: independentProduct) => {
           {product.description}
         </p>
         <div className="text-[18px] leading-[100%] tracking-[1.29px] font-[700]">
-          $ {product.price}
+          $ {totalPrice}
         </div>
 
-        <div className="buttons flex w-[296px] h-[48px] gap-[10px]">
+        <div className="buttons flex md:w-[296px] md:h-[48px] gap-[10px] mx-auto">
           <div className="flex items-center justify-between w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-[#f1f1f1] px-[5px] text-[20px] font-bold">
             <button onClick={handleDecrement}>
               <FiMinus />
@@ -44,7 +50,10 @@ const FirstSection = ({ product }: independentProduct) => {
               <FaPlus />
             </button>
           </div>
-          <button className="w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-[#D87D4A] text-white ">
+          <button
+            className="w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-[#D87D4A] text-white "
+            onClick={() => addToCart(product)}
+          >
             ADD PRODUCTS
           </button>
         </div>

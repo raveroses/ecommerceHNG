@@ -14,7 +14,7 @@ const Earphone = () => {
   );
 
   return (
-    <section className="mx-auto">
+    <section className="md:mx-auto mx-0">
       <ProductComponent product={earphone ?? []} />
     </section>
   );

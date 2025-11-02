@@ -1,7 +1,9 @@
+"use client";
+
 const SecondSection = () => {
   return (
-    <section className="w-[1110px] h-[318px] flex justify-between items-start ">
-      <div className="w-[635px] h-[318px]">
+    <section className="md:w-[1110px] md:h-[318px] w-full flex md:justify-between justify-center md:items-start items-center flex-col md:flex-row md:text-left text-center ">
+      <div className="md:w-[635px] md:h-[318px]">
         <h2 className="text-[32px] leading-[36px] tracking-[1.14px] font-[700] ">
           FEATURES
         </h2>
@@ -26,7 +28,7 @@ const SecondSection = () => {
           </p>
         </div>
       </div>
-      <div className="w-[350px] h-[225px]">
+      <div className="md:w-[350px] md:h-[225px] md:pt-0 pt-20">
         <h2 className="text-[32px] leading-[36px] tracking-[1.14px] font-[700] ">
           IN THE BOX
         </h2>

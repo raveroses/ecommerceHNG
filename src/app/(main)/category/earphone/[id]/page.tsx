@@ -2,7 +2,6 @@ import FirstSection from "./component/firstSection";
 import SecondSection from "./component/secondSection";
 import ThirdSection from "./component/thirdSection";
 import LastContent from "./component/lastContent";
-import ProductView from "@/app/_productview/productView";
 import { fetchQuery } from "convex/nextjs";
 import { api } from "../../../../../../convex/_generated/api";
 
@@ -35,7 +34,6 @@ export default async function ProductDetailPage({
       <SecondSection />
       <ThirdSection />
       <LastContent />
-      <ProductView />
       {/* <div className="absolute inset-0 bg-black/50"></div> */}
     </section>
   );

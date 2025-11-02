@@ -9,6 +9,8 @@ export type HeroCardProps = {
   shopLink: string;
   top: number;
   left: number;
+  mobileTop: number;
+  mobileLeft: number;
 };
 
 export type ProductsTypes = {
@@ -20,6 +22,7 @@ export type ProductsTypes = {
   image: string;
   category: string;
   stock?: number;
+  quantity?: number;
 };
 export interface ProductComponentProps {
   product: ProductsTypes[];
@@ -27,4 +30,9 @@ export interface ProductComponentProps {
 
 export interface independentProduct {
   product: ProductsTypes;
+}
+
+export interface ContextType {
+  cart: ProductsTypes[];
+  addToCart: (product: ProductsTypes) => void;
 }
