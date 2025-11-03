@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import { NavProps } from "@/_types/types";
-const NavBar = () => {
+const NavBar = ({ isNavBar }: { isNavBar: boolean }) => {
   const [navs] = useState<NavProps[]>([
-    { path: "/home", navName: "HOMES" },
+    { path: "/", navName: "HOMES" },
     { path: "/headphones", navName: "HEADPHONES" },
     { path: "/speakers", navName: "SPEAKERS" },
     { path: "/earphones", navName: "EARPHONES" },
@@ -19,10 +19,14 @@ const NavBar = () => {
   });
 
   return (
-    <nav className="text-[13px] flex md:flex-col flex-col lg:flex-row md:bg-white bg-white lg:bg-transparent lg:w-auto md:w-[200px] lg:h-auto md:h-full  
-    lg:gap-[20px] md:gap-[30px] gap-[30px] md:text-black text-black md:absolute lg:static left-0 top-[150px]  lg:text-white font-bold md:p-10 p-10 lg:p-auto hidden ">
-      {navMapping}
-    </nav>
+    <div className={`${isNavBar ? "block" : "hidden"}`}>
+      <nav
+        className={`text-[13px] flex md:flex-row flex-col bg-white md:bg-transparent md:w-auto w-[150px] md:h-auto h-[400px]  
+    md:gap-[30px] gap-[30px] md:text-white text-black md:static absolute left-[0px] top-[60px] font-bold md:p-auto p-10  `}
+      >
+        {navMapping}
+      </nav>
+    </div>
   );
 };
 

@@ -3,8 +3,8 @@ import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
 import { FiMinus } from "react-icons/fi";
 import { independentProduct } from "@/_types/types";
-import { useState } from "react";
-import { useMyContext } from "@/custom hooks/useMyContext";
+import { useContext, useState } from "react";
+import { MyContext } from "@/custom-hooks/myContext";
 const FirstSection = ({ product }: independentProduct) => {
   const [quantity, setQuantity] = useState<number>(1);
 
@@ -15,11 +15,18 @@ const FirstSection = ({ product }: independentProduct) => {
     setQuantity((prev) => Math.max(1, prev - 1));
   };
 
-  const { addToCart, cart } = useMyContext();
-
-  const totalPrice = product.price * quantity;
+  // const totalPrice = product.price * quantity;
   console.log(quantity);
+
+  const context = useContext(MyContext);
+  if (!context) {
+    console.log("invalid context");
+
+    return;
+  }
+  const { cart, addToCart } = context;
   console.log(cart);
+  const totalPrice = product.price * quantity;
 
   return (
     <section className="md:w-[1110px] md:h-[560px] w-full flex flex-col md:flex-row gap-[50px] my-[100px] items-center md:text-left text-center">
@@ -40,7 +47,7 @@ const FirstSection = ({ product }: independentProduct) => {
           $ {totalPrice}
         </div>
 
-        <div className="buttons flex md:w-[296px] md:h-[48px] gap-[10px] mx-auto">
+        <div className="buttons flex md:w-[296px] md:h-[48px] gap-[10px] md:mx-0 mx-auto">
           <div className="flex items-center justify-between w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-[#f1f1f1] px-[5px] text-[20px] font-bold">
             <button onClick={handleDecrement}>
               <FiMinus />
@@ -52,7 +59,7 @@ const FirstSection = ({ product }: independentProduct) => {
           </div>
           <button
             className="w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-[#D87D4A] text-white "
-            onClick={() => addToCart(product)}
+            onClick={() => addToCart(product, quantity)}
           >
             ADD PRODUCTS
           </button>

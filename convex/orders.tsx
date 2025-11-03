@@ -1,16 +1,8 @@
-import { defineSchema, defineTable } from "convex/server";
+import { mutation } from "./_generated/server";
 import { v } from "convex/values";
 
-export default defineSchema({
-  product: defineTable({
-    name: v.string(),
-    description: v.string(),
-    price: v.number(),
-    image: v.string(),
-    category: v.string(),
-    stock: v.optional(v.number()),
-  }),
-  orders: defineTable({
+export const addOrder = mutation({
+  args: {
     name: v.string(),
     description: v.string(),
     price: v.number(),
@@ -25,9 +17,12 @@ export default defineSchema({
     phoneNumber: v.string(),
     zipcode: v.string(),
     postcode: v.number(),
-
     country: v.string(),
     eMoney: v.boolean(),
     cashOndelivery: v.boolean(),
-  }),
+  },
+  handler: async (ctx, args) => {
+    const orderId = await ctx.db.insert("orders", args);
+    return orderId;
+  },
 });

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
-import { ConvexClientProvider } from "@/custom hooks/ConvexClientProvider";
+import { ConvexClientProvider } from "@/custom-hooks/ConvexClientProvider";
 import "./globals.css";
 import Header from "@/_header/Header";
 import SecondtothelastPart from "@/secondtothelastPart/secondtothelastPart";
 import LastPartofLandingPage from "@/lastpartodLanding/lastPartofLandingPage";
 import Footer from "@/_footer/footer";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

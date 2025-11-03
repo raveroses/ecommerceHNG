@@ -23,6 +23,7 @@ export type ProductsTypes = {
   category: string;
   stock?: number;
   quantity?: number;
+  totalPrice?: number;
 };
 export interface ProductComponentProps {
   product: ProductsTypes[];
@@ -34,5 +35,22 @@ export interface independentProduct {
 
 export interface ContextType {
   cart: ProductsTypes[];
-  addToCart: (product: ProductsTypes) => void;
+  addToCart: (product: ProductsTypes, quantity: number) => void;
+  isCart: boolean;
+  handleOnCart: () => void;
+  handleRemoveAllCart: () => void;
 }
+
+export interface CheckOutDetail {
+  userName: string;
+  email: string;
+  address: string;
+  phoneNumber: string;
+  zipcode: string;
+  postcode: number;
+  country: string;
+  eMoney: boolean;
+  cashOndelivery: boolean;
+}
+
+export interface AllDetail extends ProductsTypes, CheckOutDetail {}

@@ -14,7 +14,7 @@ const Header = () => {
       className={` w-full ${
         // isPathName ? "h-[729px]" : "h-[97px]"
         isPathName ? "h-[729px]" : "h-[300px]"
-      }  bg-[#0E0E0E] items-center lg:px-[100px] p-10 `}
+      }  bg-[#0E0E0E] items-center lg:px-[100px] p-5  `}
     >
       <HeaderComponent />
       {isPathName && <Hersection />}

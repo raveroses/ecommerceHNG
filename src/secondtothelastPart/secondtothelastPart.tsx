@@ -4,7 +4,9 @@ import { HeroCardProps } from "@/_types/types";
 import { RxCaretRight } from "react-icons/rx";
 import Image from "next/image";
 import Link from "next/link";
+import { useMediaQuery } from "@/custom-hooks/useMediaQuery";
 const SecondtothelastPart = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [cards] = useState<HeroCardProps[]>([
     {
       cardname: "HEADPHONES",
@@ -48,7 +50,7 @@ const SecondtothelastPart = () => {
           //   left: card.left,
           // }}
           style={
-            window.innerWidth > 768
+            isMobile
               ? { top: card.top, left: card.left }
               : { top: card.mobileTop, left: card.mobileLeft }
           }

@@ -1,8 +1,11 @@
 import { IoCheckmarkSharp } from "react-icons/io5";
 import Image from "next/image";
-const Overlay = () => {
+import Link from "next/link";
+const Overlay = ({ isOverLay }: { isOverLay: boolean }) => {
   return (
-    <section className=" md:w-[540px] w-full md:h-[581px] h-[700px] bg-white absolute md:top-[100px] md:left-[300px] top-[50px] left-0 z-[90] md:p-[50px] p-[10px] rounded-[10px]">
+    <section
+      className={` md:w-[540px] w-full md:h-[581px] h-[700px] bg-white absolute md:top-[100px] md:left-[300px] top-[50px] left-0 z-[90] md:p-[50px] p-[10px] rounded-[10px] ${isOverLay ? "block" : "hidden"}`}
+    >
       <div className="w-[64px] h-[64px] bg-[#D87D4A] rounded-full flex justify-center">
         <div className="text-white text-[30px] font-[700] my-[15px]">
           <IoCheckmarkSharp />
@@ -41,7 +44,7 @@ const Overlay = () => {
             </p>
           </div>
 
-          <div className="md: w-[198px] w-full md:h-[140px] h-[200px] bg-black text-center flex justify-center flex-col md:p-0 p-2 ">
+          <div className="md:w-[198px] w-full md:h-[140px] h-[200px] bg-black text-center flex justify-center flex-col md:p-0 p-2 ">
             <h2 className="text-[15px] leading-[25px] tracking-[0px] font-[400] text-[#FFFFFF] ">
               GRAND TOTAL
             </h2>
@@ -51,9 +54,11 @@ const Overlay = () => {
           </div>
         </section>
 
-        <button className=" md:w-[444px] w-full h-[48px] bg-[#D87D4A] text-white text-[13px] leading-[100%] tracking-[1px] font-[700] uppercase text-align">
-          BACK TO HOME
-        </button>
+        <Link href="/">
+          <button className=" md:w-[444px] w-full h-[48px] bg-[#D87D4A] text-white text-[13px] leading-[100%] tracking-[1px] font-[700] uppercase text-align">
+            BACK TO HOME
+          </button>
+        </Link>
       </div>
     </section>
   );
