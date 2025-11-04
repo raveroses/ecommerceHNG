@@ -19,7 +19,7 @@ const NavBar = ({ isNavBar }: { isNavBar: boolean }) => {
   });
 
   return (
-    <div className={`${isNavBar ? "block" : "hidden"}`}>
+    <div className={`${isNavBar ? "block" : "hidden"} md:block`}>
       <nav
         className={`text-[13px] flex md:flex-row flex-col bg-white md:bg-transparent md:w-auto w-[150px] md:h-auto h-[400px]  
     md:gap-[30px] gap-[30px] md:text-white text-black md:static absolute left-[0px] top-[60px] font-bold md:p-auto p-10  `}
