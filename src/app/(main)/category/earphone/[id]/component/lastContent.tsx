@@ -8,28 +8,16 @@ const LastContent = () => {
       cardname: "XX99 MARK I",
       cardImage: "/images/headphone2.jpg",
       shopLink: "/",
-      top: -30,
-      left: 120,
-      mobileTop: -10,
-      mobileLeft: 150,
     },
     {
       cardname: "ZX9 SPEAKER",
       cardImage: "/images/speaker.jpg",
       shopLink: "/",
-      top: -30,
-      left: 120,
-      mobileTop: -10,
-      mobileLeft: 150,
     },
     {
       cardname: "XX59",
       cardImage: "/images/whiteheadphone.jpg",
       shopLink: "/",
-      top: -30,
-      left: 120,
-      mobileTop: -10,
-      mobileLeft: 150,
     },
   ]);
 

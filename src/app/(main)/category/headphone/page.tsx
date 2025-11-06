@@ -1,7 +1,7 @@
 import Headphone from "./Headphone";
 const HeadphonePage = () => {
   return (
-    <section>
+    <section className="md:px-0 px-[10px]">
       <Headphone />
     </section>
   );

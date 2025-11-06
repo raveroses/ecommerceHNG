@@ -1,7 +1,7 @@
 import Speaker from "./speaker";
 const SpeakerPage = () => {
   return (
-    <section>
+    <section className="md:px-0 px-[10px]">
       <Speaker />
     </section>
   );

@@ -12,21 +12,21 @@ const ProductComponent = ({ product }: ProductComponentProps) => {
   const productListing = product.map((product, index) => {
     return (
       <div
-        className={`flex md:w-[1110px] md:h-[560px] items-center gap-[80px] flex-col md:text-left text-center ${
+        className={`flex md:w-[1110px] w-full md:h-[560px] items-center md:gap-[80px] flex-col md:text-left text-center ${
           index % 2 === 0 ? "md:flex-row " : "md:flex-row-reverse"
         } `}
         key={index}
       >
-        <div className="w-[540px] h-[560px] relative overflow-hidden z-[30px] bg-[#f1f1f1]">
+        <div className="md:w-[540px] md:h-[560px] w-full h-[350px] relative overflow-hidden bg-[#f1f1f1]">
           <Image
             src={product.image}
             alt={product.name}
-            width={540}
-            height={560}
-            className="object-cover"
+           fill
+            className=" object-contain py-[20px]"
           />
         </div>
-        <div className="w-[445px] h-[343px] flex flex-col gap-[20px]">
+        
+        <div className="md:w-[445px] md:h-[343px] w-full flex flex-col gap-[20px]">
           <h2 className=" text-[56px] leading-[58px] tracking-[2px] font-[700] uppercase">
             {product.name}
           </h2>
@@ -45,7 +45,7 @@ const ProductComponent = ({ product }: ProductComponentProps) => {
   });
 
   return (
-    <section className="my-[200px] flex flex-col gap-[50px] mx-[200px]">
+    <section className="my-[200px] flex flex-col gap-[50px] md:mx-[200px]">
       {productListing}
     </section>
   );

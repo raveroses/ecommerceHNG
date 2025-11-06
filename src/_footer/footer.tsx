@@ -2,13 +2,13 @@ import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 const Footer = () => {
   return (
-    <footer className="md:w-[1440px] md:h-[365px] h-[500px] w-full bg-black text-white md:px-[120px] px-20 py-[80px] mt-[80px] flex flex-col gap-[30px] md:text-left text-center">
+    <footer className="w-full  bg-black text-white md:px-[50px] px-5 py-[80px] mt-[0px] md:mt-[80px] flex flex-col gap-[30px] md:text-left text-center">
       <div className="flex md:justify-between justify-center md:flex-row flex-col">
         <div>
           <h2 className="text-[20px] font-bold">audiophile</h2>
         </div>
       </div>
-      <div className="flex md:justify-between flex-col md:flex-row justify-center items-center py-[60px] md:gap-0 gap-[60px]">
+      <div className="flex md:justify-between flex-col md:flex-row justify-center items-center py-[60px] md:gap-0 gap-[90px]">
         <p className="text-[125x] leading-[25px] tracking-0 font-[500] md:w-[540px] w-full h-[100px] ">
           Audiophile is an all in one stop to fulfill your audio needs. Were a
           small team of music lovers and sound specialists who are devoted to

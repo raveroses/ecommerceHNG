@@ -7,10 +7,6 @@ export type HeroCardProps = {
   cardname: string;
   cardImage: string;
   shopLink: string;
-  top: number;
-  left: number;
-  mobileTop: number;
-  mobileLeft: number;
 };
 
 export type ProductsTypes = {
@@ -39,6 +35,8 @@ export interface ContextType {
   isCart: boolean;
   handleOnCart: () => void;
   handleRemoveAllCart: () => void;
+  handleNavBar: () => void;
+  isNavBar: boolean;
 }
 
 export interface CheckOutDetail {

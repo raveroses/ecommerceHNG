@@ -34,7 +34,7 @@ const FirstSection = ({ product }: independentProduct) => {
       </div>
 
       <div className="md:w-[444.5px] md:h-[407px] w-full flex flex-col gap-[35px]">
-        <h2 className=" text-[56px] leading-[58px] tracking-[2px] font-[700] uppercase">
+        <h2 className=" md:text-[56px] text-[30px] leading-[58px] tracking-[2px] font-[700] uppercase">
           {product.name}
         </h2>
         <p className="text-[15px] font-[400] leading-[25px] tracking-[0px]">

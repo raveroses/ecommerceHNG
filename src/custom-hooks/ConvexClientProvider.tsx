@@ -39,6 +39,11 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
       setCart([]);
     }
   };
+    const [isNavBar, setIsNavBar] = useState<boolean>(false);
+  
+    const handleNavBar = () => {
+      setIsNavBar((prev) => !prev);
+    };
   return (
     <ConvexProvider client={convex}>
       <MyContext.Provider
@@ -48,6 +53,8 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
           isCart: isCart,
           handleOnCart: handleOncart,
           handleRemoveAllCart: handleRemoveAllCart,
+          handleNavBar:handleNavBar,
+          isNavBar:isNavBar
         }}
       >
         {children}

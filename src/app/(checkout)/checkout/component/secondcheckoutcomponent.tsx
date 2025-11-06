@@ -34,7 +34,7 @@ const SecondCheckouComponent = () => {
 
   const totalPrice = cart.reduce((accum, item) => accum + item.price, 0);
   return (
-    <section className=" rounded-xl p-[15px] md:w-[350px] w-full h-[612px] bg-[#f1f1f1]">
+    <section className=" rounded-xl md:p-[15px] md:w-[350px] w-full md:h-[612px] bg-[#f1f1f1] p-[20px] md:my-0 my-[50px]">
       <div className="md:w-[313px] w-full h-[25px] flex justify-between">
         <div className="text-[18px] leading-[100%] tracking-[1.29px] font-[700] uppercase">
           SUMMARY

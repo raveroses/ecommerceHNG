@@ -1,8 +1,8 @@
 import Image from "next/image";
 const LastPartofLandingPage = () => {
   return (
-    <section className="last md:w-[1110px] md:h-[588px] w-full flex md:flex-row flex-col items-center md:gap-[200px] gap-[100px] mx-auto md:text-left text-center">
-      <div className="w-[445px] h-[295px]">
+    <section className="last lg:w-[1110px] md:w-full md:h-[588px] w-full flex md:flex-row flex-col items-center md:gap-[200px] gap-[100px] mx-auto md:text-left text-center md:px-0 px-[10px] py-10 ">
+      <div className="md:w-[445px] w-full h-[295px]">
         <h2 className="uppercase font-[700] text-[40px] leading-[44px] tracking-[1.43px] pb-[40px]">
           Bringing you the <span className="text-[#d87d4a]">best</span> audio
           gear

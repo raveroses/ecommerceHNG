@@ -1,16 +1,17 @@
 "use client";
 import Image from "next/image";
 import SecondtothelastPart from "@/secondtothelastPart/secondtothelastPart";
+import Link from "next/link";
 const Body = () => {
   return (
     <section className="">
       <SecondtothelastPart />
 
       <div
-        className="md:h-[560px] md:w-[1110px] py-20 w-full bg-[#D87D4A] radius-[8px] mx-auto my-[100px] px-[80px] md:px-[150px] pt-[30px] text-white 
+        className="md:h-[560px] md:w-[1110px] py-20 w-full bg-[#D87D4A] radius-[8px] mx-auto my-[100px] md:px-[80px] p-2 md:px-[150px] pt-[30px] text-white 
       flex md:flex-row flex-col md:justify-start justify-center items-center md:gap-[70px] gap-[50px]"
       >
-        <div className="w-[410.23px] h-[493px] relative overflow-hidden">
+        <div className="md:w-[410.23px] w-full max-w-full h-[493px] relative overflow-hidden">
           <Image src="/images/speaker2.jpg" alt="speaker-image" fill />
         </div>
         <div className="md:w-[349px] md:h-[303px] md:text-left text-center ">
@@ -21,9 +22,11 @@ const Body = () => {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <button className="w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-black text-white mx-auto ">
-            SEE PRODUCTS
-          </button>
+          <Link href="/category/speaker">
+            <button className="w-[160px] h-[48px] text-[13px] leading-[100%] tracking-[1px] bg-black text-white mx-auto ">
+              SEE PRODUCTS
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -44,10 +47,6 @@ const Body = () => {
             SEE PRODUCTS
           </button>
         </div>
-
-        {/* <div className="w-[410.23px] h-[300px] relative overflow-hidden z-[30px]">
-          <Image src="/images/stand.png" alt="speaker-image" fill />
-        </div> */}
       </div>
 
       <section className="md:w-[1110px] md:h-[320px] w-[600px] w-full flex md:flex-row flex-col items-center mx-auto my-[100px]">

@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased md:w-[1440px] w-[768px]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased lg:w-[1440px] md:w-full w-[768px] `}
       >
         <ConvexClientProvider>
           <Header />

@@ -1,7 +1,7 @@
 import Earphone from "./earphone";
 const EarphonePage = () => {
   return (
-    <section>
+    <section className="md:px-0 px-[10px]">
       <Earphone />
     </section>
   );
