@@ -32,7 +32,6 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
     setIsCart((prev) => !prev);
   };
 
-  console.log("The one in side context", cart);
 
   const handleRemoveAllCart = () => {
     if (cart.length > 0) {
