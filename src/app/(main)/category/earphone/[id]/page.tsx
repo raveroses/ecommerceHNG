@@ -4,6 +4,7 @@ import ThirdSection from "./component/thirdSection";
 import LastContent from "./component/lastContent";
 import { fetchQuery } from "convex/nextjs";
 import { api } from "../../../../../../convex/_generated/api";
+import { ProductsTypes } from "@/_types/types";
 
 // export async function generateStaticParams() {
 //   try {
@@ -15,40 +16,29 @@ import { api } from "../../../../../../convex/_generated/api";
 //   }
 // }
 
-const CONVEX_URL = process.env.NEXT_PUBLIC_CONVEX_URL?.replace(/\/$/, "");
-console.log("convex", CONVEX_URL);
-
 export async function generateStaticParams() {
-  if (!CONVEX_URL) {
-    console.error("Missing NEXT_PUBLIC_CONVEX_URL");
-    return [];
-  }
-  const url = `${CONVEX_URL}/api/products`;
+  const HTTP_URL = process.env.NEXT_PUBLIC_CONVEX_HTTP_URL!;
 
-  console.log("url", url);
+  console.log("convex client:", process.env.NEXT_PUBLIC_CONVEX_URL);
+  console.log("http url:", HTTP_URL);
+
   try {
-    const res = await fetch(url, {
-      cache: "force-cache",
-      headers: {
-        Accept: "application/json",
-      },
+    const response = await fetch(`${HTTP_URL}/api/products`, {
+      next: { revalidate: 3600 },
     });
+    console.log("Status:", response.status);
 
-    if (!res.ok) {
-      const text = await res.text();
-      console.error(`HTTP ${res.status}:`, text.slice(0, 300));
-      return [];
-    }
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-    const products: { _id: string }[] = await res.json();
+    const products: ProductsTypes[] = await response.json();
+    console.log("Fetched", products.length, "products");
 
     return products.map((p) => ({
+      category: p.category,
       id: p._id,
     }));
-  } catch (err: unknown) {
-    if (err instanceof Error) {
-      console.error("Failed to fetch products for static params:", err.message);
-    }
+  } catch (error) {
+    console.error("Failed to fetch products:", error);
     return [];
   }
 }
