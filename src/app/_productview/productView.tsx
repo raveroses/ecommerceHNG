@@ -66,7 +66,7 @@ const ProductView = () => {
         {productMap}
       </div>
 
-      <div className="w-[308px] h-[25px] flex justify-between">
+      <div className="md:w-[308px] h-[25px] flex justify-between ">
         <p className="text-[14px] leading-[25px] tracking-[0px] font-[400]">
           TOTAL
         </p>
@@ -76,7 +76,7 @@ const ProductView = () => {
       </div>
 
       <Link href="/checkout">
-        <button className="w-[313px] h-[48px] bg-[#FBAF85] text-[13px] leading-[100%] tracking-[1px] font-[700] text-align text-white">
+        <button className="md:w-[313px] w-full h-[48px] bg-[#FBAF85] text-[13px] leading-[100%] tracking-[1px] font-[700] text-align text-white">
           checkout
         </button>
       </Link>

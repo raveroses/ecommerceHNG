@@ -18,7 +18,7 @@ const HeaderComponent = () => {
     <section className="relative lg:static">
       <div className="flex text-white justify-between items-center py-[0px]">
         <div
-          className="md:block lg:hidden text-[30px] text-white"
+          className=" hamburger md:block lg:hidden text-[30px] text-white"
           onClick={handleNavBar}
         >
           <GiHamburgerMenu />
@@ -29,12 +29,12 @@ const HeaderComponent = () => {
         </div>
 
         <div
-          className={`${isNavBar ? "block" : "hidden"} md:block bg-white md:bg-transparent md:w-auto w-[220px] md:h-auto h-[900px] md:static absolute left-[0px] top-[60px] md:p-auto p-5 `}
+          className={`navbar ${isNavBar ? "block" : "hidden"} md:block bg-white md:bg-transparent md:w-auto w-[220px] md:h-auto h-[900px] md:static absolute left-[0px] top-[60px] md:p-auto p-5 `}
         >
           <NavBar />
         </div>
 
-        <div className="carticon text-[30px]" onClick={handleOnCart}>
+        <div className="cart carticon text-[30px]" onClick={handleOnCart}>
           <IoCartOutline />
         </div>
       </div>

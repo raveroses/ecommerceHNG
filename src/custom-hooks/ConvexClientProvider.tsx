@@ -1,7 +1,7 @@
 "use client";
 
 import { ConvexProvider, ConvexReactClient } from "convex/react";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { MyContext } from "./myContext";
 import { ProductsTypes } from "@/_types/types";
 import { useRouter } from "next/navigation";
@@ -32,16 +32,48 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
     setIsCart((prev) => !prev);
   };
 
+  console.log(cart);
+
   const handleRemoveAllCart = () => {
     if (cart.length > 0) {
       setCart([]);
     }
   };
+
   const [isNavBar, setIsNavBar] = useState<boolean>(false);
 
   const handleNavBar = () => {
-    setIsNavBar((prev) => !prev);
+    setIsNavBar(true);
   };
+
+  useEffect(() => {
+    const navbar = document.querySelector(".navbar");
+    const hamburger = document.querySelector(".hamburger");
+    const cart = document.querySelector(".cart");
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        navbar &&
+        !navbar.contains(e.target as Node) &&
+        hamburger &&
+        !hamburger.contains(e.target as Node)
+      ) {
+        setIsNavBar(false);
+      }
+
+      if (cart && !cart.contains(e.target as Node)) {
+        setIsCart(false);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+
   return (
     <ConvexProvider client={convex}>
       <MyContext.Provider

@@ -9,14 +9,14 @@ export default function Home() {
 
     return;
   }
-  // const { isCart } = context;
+  const { isCart } = context;
   return (
     <div className="md:px-0 px-[10px]">
       <div className="mt-[100px] ">
         <Body />
-        {/* <div
+        <div
           className={`absolute inset-0 bg-black/50 ${isCart ? "block" : "hidden"}`}
-        ></div> */}
+        ></div>
       </div>
     </div>
   );
