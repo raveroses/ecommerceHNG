@@ -5,16 +5,16 @@ import LastContent from "./component/lastContent";
 import { api } from "../../../../../../convex/_generated/api";
 import { fetchQuery } from "convex/nextjs";
 // import { ProductsTypes } from "@/_types/types";
-export async function generateStaticParams() {
-  try {
-    const products = await fetchQuery(api.product.getProducts);
-    console.log("Static params for", products.length, "products");
-    return products.map((p) => ({ category: p.category, id: p._id }));
-  } catch (error) {
-    console.error("Static params failed:", error);
-    return [];
-  }
-}
+// export async function generateStaticParams() {
+//   try {
+//     const products = await fetchQuery(api.product.getProducts);
+//     console.log("Static params for", products.length, "products");
+//     return products.map((p) => ({ category: p.category, id: p._id }));
+//   } catch (error) {
+//     console.error("Static params failed:", error);
+//     return [];
+//   }
+// }
 
 export default async function ProductDetailPage({
   params,
