@@ -7,7 +7,7 @@ import { ProductsTypes } from "@/_types/types";
 import { useRouter } from "next/navigation";
 
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
-
+console.log(convex);
 export function ConvexClientProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
 
@@ -32,17 +32,16 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
     setIsCart((prev) => !prev);
   };
 
-
   const handleRemoveAllCart = () => {
     if (cart.length > 0) {
       setCart([]);
     }
   };
-    const [isNavBar, setIsNavBar] = useState<boolean>(false);
-  
-    const handleNavBar = () => {
-      setIsNavBar((prev) => !prev);
-    };
+  const [isNavBar, setIsNavBar] = useState<boolean>(false);
+
+  const handleNavBar = () => {
+    setIsNavBar((prev) => !prev);
+  };
   return (
     <ConvexProvider client={convex}>
       <MyContext.Provider
@@ -52,8 +51,8 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
           isCart: isCart,
           handleOnCart: handleOncart,
           handleRemoveAllCart: handleRemoveAllCart,
-          handleNavBar:handleNavBar,
-          isNavBar:isNavBar
+          handleNavBar: handleNavBar,
+          isNavBar: isNavBar,
         }}
       >
         {children}
