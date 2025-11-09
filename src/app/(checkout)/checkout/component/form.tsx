@@ -18,9 +18,11 @@ const Form = ({ setIsOverLay }: { setIsOverLay: (value: boolean) => void }) => {
     zipcode: "",
     postcode: "",
     country: "",
-    eMoney: "",
+    // eMoney: "",
     paymentMethod: "",
   });
+
+  // const [selectPayment,setSelectPayment]= useState<string>("");
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -58,11 +60,17 @@ const Form = ({ setIsOverLay }: { setIsOverLay: (value: boolean) => void }) => {
       newErrors.phoneNumber = "Invalid phone number";
     }
 
-    if (!checkOutDetail.zipcode.trim()) {
+    if (
+      !checkOutDetail.zipcode.trim() &&
+      isNaN(Number(checkOutDetail.zipcode))
+    ) {
       newErrors.zipcode = "Zip code is required";
     }
 
-    if (!checkOutDetail.postcode.trim()) {
+    if (
+      !checkOutDetail.postcode.trim() &&
+      isNaN(Number(checkOutDetail.postcode))
+    ) {
       newErrors.postcode = "Post code is required";
     }
 
@@ -70,26 +78,18 @@ const Form = ({ setIsOverLay }: { setIsOverLay: (value: boolean) => void }) => {
       newErrors.country = "Country is required";
     }
 
-    if (!checkOutDetail.paymentMethod) {
+    if (!checkOutDetail.paymentMethod || !checkOutDetail.paymentMethod) {
       newErrors.paymentMethod = "Please select a payment method";
-    }
-
-    if (
-      checkOutDetail.paymentMethod === "eMoney" &&
-      !checkOutDetail.eMoney.trim()
-    ) {
-      newErrors.eMoney = "e-Money number is required";
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+  console.log(checkOutDetail);
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!validateForm()) {
-      console.log("Form has errors");
       return;
     }
     for (const item of cart) {
@@ -107,11 +107,10 @@ const Form = ({ setIsOverLay }: { setIsOverLay: (value: boolean) => void }) => {
         email: checkOutDetail.email,
         address: checkOutDetail.address,
         phoneNumber: checkOutDetail.phoneNumber,
-        zipcode: checkOutDetail.zipcode,
+        zipcode: Number(checkOutDetail.zipcode),
         postcode: Number(checkOutDetail.postcode),
         country: checkOutDetail.country,
-        eMoney: checkOutDetail.paymentMethod === "eMoney",
-        cashOndelivery: checkOutDetail.paymentMethod === "cashOnDelivery",
+        paymentMethod: checkOutDetail.paymentMethod,
       });
     }
     alert("Order placed successfully!");
@@ -136,7 +135,6 @@ const Form = ({ setIsOverLay }: { setIsOverLay: (value: boolean) => void }) => {
       postcode: "",
       country: "",
       paymentMethod: "",
-      eMoney: "",
     });
   };
 

@@ -23,11 +23,10 @@ export default defineSchema({
     email: v.string(),
     address: v.string(),
     phoneNumber: v.string(),
-    zipcode: v.string(),
+    zipcode: v.number(),
     postcode: v.number(),
 
     country: v.string(),
-    eMoney: v.boolean(),
-    cashOndelivery: v.boolean(),
+    paymentMethod: v.string(),
   }),
 });

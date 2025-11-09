@@ -1,9 +1,7 @@
-import FirstSection from "./component/firstSection";
-import SecondSection from "./component/secondSection";
-import ThirdSection from "./component/thirdSection";
-import LastContent from "./component/lastContent";
 import { api } from "../../../../../../convex/_generated/api";
 import { fetchQuery } from "convex/nextjs";
+import { Bounce, ToastContainer } from "react-toastify";
+import Allsection from "../../_component/Allsection";
 // import { ProductsTypes } from "@/_types/types";
 // export async function generateStaticParams() {
 //   try {
@@ -33,11 +31,21 @@ export default async function ProductDetailPage({
 
   return (
     <section className="relative flex items-center flex-col mx-auto md:px-0 px-[10px] ">
-      <FirstSection product={product} />
-      <SecondSection />
-      <ThirdSection />
-      <LastContent />
-      {/* <div className="absolute inset-0 bg-black/50"></div> */}
+      <Allsection product={product} />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+        limit={1}
+      />
     </section>
   );
 }

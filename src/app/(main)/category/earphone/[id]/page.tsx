@@ -1,9 +1,6 @@
-import FirstSection from "./component/firstSection";
-import SecondSection from "./component/secondSection";
-import ThirdSection from "./component/thirdSection";
-import LastContent from "./component/lastContent";
 import { fetchQuery } from "convex/nextjs";
 import { api } from "../../../../../../convex/_generated/api";
+import Allsection from "../../_component/Allsection";
 // import { ProductsTypes } from "@/_types/types";
 
 // export async function generateStaticParams() {
@@ -34,11 +31,7 @@ export default async function ProductDetailPage({
 
   return (
     <section className="relative flex items-center flex-col mx-auto md:px-0 px-[10px]">
-      <FirstSection product={product} />
-      <SecondSection />
-      <ThirdSection />
-      <LastContent />
-      {/* <div className="absolute inset-0 bg-black/50"></div> */}
+      <Allsection product={product} />
     </section>
   );
 }

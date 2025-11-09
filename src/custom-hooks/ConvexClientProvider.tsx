@@ -1,10 +1,11 @@
 "use client";
 
 import { ConvexProvider, ConvexReactClient } from "convex/react";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { MyContext } from "./myContext";
 import { ProductsTypes } from "@/_types/types";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 console.log(convex);
@@ -14,16 +15,18 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<ProductsTypes[]>([]);
 
   const addToCart = (product: ProductsTypes, quantity: number) => {
-    console.log("Im clicked", quantity);
-
     setCart((prev) => {
       const itemExit = prev.find((item) => item._id === product._id);
       if (itemExit) {
         return prev;
       }
+      toast.success(`${product.name} added to cart successfully`);
+
+      setTimeout(() => {
+        router.push("/checkout");
+      },2000);
       return [...prev, { ...product, price: product.price * quantity }];
     });
-    router.push("/checkout");
   };
 
   const [isCart, setIsCart] = useState(false);
@@ -72,7 +75,6 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
       window.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
 
   return (
     <ConvexProvider client={convex}>

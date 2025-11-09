@@ -9,7 +9,7 @@ const CheckoutMother = () => {
 
   return (
     <div>
-      <section className="flex justify-between md:flex-row flex-col items-start">
+      <section className="flex justify-between md:flex-row flex-col items-start ">
         <CheckoutComponent setIsOverLay={setIsOverLay} />
         <SecondCheckouComponent />
       </section>
