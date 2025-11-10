@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import CheckoutComponent from "./checkoutComponent";
 import Overlay from "./overlay";
 import SecondCheckouComponent from "./secondcheckoutcomponent";
