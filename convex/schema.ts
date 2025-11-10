@@ -25,7 +25,6 @@ export default defineSchema({
     phoneNumber: v.string(),
     zipcode: v.number(),
     postcode: v.number(),
-
     country: v.string(),
     paymentMethod: v.string(),
   }),

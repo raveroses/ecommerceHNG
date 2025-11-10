@@ -2,7 +2,7 @@ import { mutation } from "./_generated/server";
 import { v } from "convex/values";
 
 export const addOrder = mutation({
-  args: {
+  args: v.object({
     name: v.string(),
     description: v.string(),
     price: v.number(),
@@ -19,7 +19,7 @@ export const addOrder = mutation({
     postcode: v.number(),
     country: v.string(),
     paymentMethod: v.string(),
-  },
+  }),
   handler: async (ctx, args) => {
     const orderId = await ctx.db.insert("orders", args);
     return orderId;
