@@ -1,7 +1,8 @@
 "use server";
 import { ProductsTypes } from "@/_types/types";
 import nodemailer from "nodemailer";
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   host: "smtp.gmail.com",
@@ -18,13 +19,20 @@ export async function sendOrderEmail(
   userName: string,
   product: ProductsTypes[]
 ) {
-  const productMap = product
-    .map(
-      (item) => `
+  try {
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      throw new Error(
+        "❌ Missing EMAIL_USER or EMAIL_PASS environment variables"
+      );
+    }
+
+    const productMap = product
+      .map(
+        (item) => `
       <div style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e5e5e5;">
         <div style="width: 64px; height: 64px; background-color: #f1f1f1; border-radius: 8px; margin-right: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
           <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #D87D4A 0%, #c96a3a 100%); border-radius: 4px;">
-          <img src=${item.image} alt="image" />
+          <img src="https://ecommerce-hng-seven.vercel.app${item.image}" alt="image" />
           </div>
         </div>
         <div style="flex: 1;">
@@ -34,15 +42,15 @@ export async function sendOrderEmail(
         <div style="color: #666; font-size: 14px; margin-left: 16px;">x1</div>
       </div>
     `
-    )
-    .join("");
+      )
+      .join("");
 
-  console.log("PRODUCT", product);
-  const info = await transporter.sendMail({
-    from: '"Audiophile" <odekunlewaris@gmail.com>',
-    to: userEmail,
-    subject: `Your Product Order Confirmation`,
-    html: `<!DOCTYPE html>
+    console.log("PRODUCT", product);
+    const info = await transporter.sendMail({
+      from: '"Audiophile" <odekunlewaris@gmail.com>',
+      to: userEmail,
+      subject: `Your Product Order Confirmation`,
+      html: `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -117,7 +125,11 @@ export async function sendOrderEmail(
     </table>
 </body>
 </html>`,
-  });
-
-  console.log("Message sent:", info.messageId);
+    });
+    console.log("✅ Message sent:", info.messageId);
+    return { success: true };
+  } catch (err) {
+    console.error("❌ sendOrderEmail error:", err);
+    throw new Error(err instanceof Error ? err.message : "Unknown error");
+  }
 }
