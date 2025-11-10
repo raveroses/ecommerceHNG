@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { api } from "../../../../../convex/_generated/api";
 import { useMutation } from "convex/react";
 import { toast } from "react-toastify";
+import { sendOrderEmail } from "@/_nodemailer/sendOrderEmail";
 
 const Form = () => {
   // { setIsOverLay }: { setIsOverLay: (value: boolean) => void }
@@ -33,7 +34,7 @@ const Form = () => {
 
     return;
   }
-  const { cart, setIsBackDrop, } = context;
+  const { cart, setIsBackDrop } = context;
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -100,7 +101,6 @@ const Form = () => {
         stock: item.stock,
         quantity: item.quantity,
         totalPrice: item.totalPrice || item.price * (item.quantity || 1),
-
         userName: checkOutDetail.userName,
         email: checkOutDetail.email,
         address: checkOutDetail.address,
@@ -113,8 +113,10 @@ const Form = () => {
     }
     toast.success("Order placed successfully!");
 
-  
     setIsBackDrop(true);
+
+    await sendOrderEmail(checkOutDetail.email, checkOutDetail.userName, cart);
+
     setCheckOutDetail({
       userName: "",
       email: "",
