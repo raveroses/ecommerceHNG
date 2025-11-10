@@ -1,10 +1,21 @@
+"use client";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import Image from "next/image";
 import Link from "next/link";
-const Overlay = ({ isOverLay }: { isOverLay: boolean }) => {
+import { useContext } from "react";
+import { MyContext } from "@/custom-hooks/myContext";
+const Overlay = () => {
+  const context = useContext(MyContext);
+  if (!context) {
+    console.log("invalid context");
+
+    return;
+  }
+  const { isBackDrop } = context;
+
   return (
     <section
-      className={` md:w-[540px] w-full md:h-[581px] h-[700px] bg-white absolute md:top-[100px] md:left-[300px] top-[50px] left-0 z-[90] md:p-[50px] p-[10px] rounded-[10px] ${isOverLay ? "block" : "hidden"}`}
+      className={`modal md:w-[540px] w-full md:h-[581px] h-[700px] bg-white absolute md:top-[100px] md:left-[300px] top-[50px] left-0 z-[90] md:p-[50px] p-[10px] rounded-[10px] ${isBackDrop ? "block" : "hidden"}`}
     >
       <div className="w-[64px] h-[64px] bg-[#D87D4A] rounded-full flex justify-center">
         <div className="text-white text-[30px] font-[700] my-[15px]">

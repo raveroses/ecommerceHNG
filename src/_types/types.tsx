@@ -37,6 +37,8 @@ export interface ContextType {
   handleRemoveAllCart: () => void;
   handleNavBar: () => void;
   isNavBar: boolean;
+  isBackDrop: boolean;
+  setIsBackDrop: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface CheckOutDetail {

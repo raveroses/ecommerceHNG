@@ -3,12 +3,12 @@ import { MyContext } from "@/custom-hooks/myContext";
 import { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { api } from "../../../../../convex/_generated/api";
 import { useMutation } from "convex/react";
-import { Resend } from "resend";
+import { toast } from "react-toastify";
 
-const Form = ({ setIsOverLay }: { setIsOverLay: (value: boolean) => void }) => {
+const Form = () => {
+  // { setIsOverLay }: { setIsOverLay: (value: boolean) => void }
   const context = useContext(MyContext);
   const addOrder = useMutation(api.orders.addOrder);
-  const resend = new Resend("re_RQLqsUeU_HCUbUq2p3uqx8yhrwJKuHLWw");
 
   const [checkOutDetail, setCheckOutDetail] = useState({
     userName: "",
@@ -22,8 +22,6 @@ const Form = ({ setIsOverLay }: { setIsOverLay: (value: boolean) => void }) => {
     paymentMethod: "",
   });
 
-  // const [selectPayment,setSelectPayment]= useState<string>("");
-
   const [errors, setErrors] = useState<Record<string, string>>({});
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -35,7 +33,7 @@ const Form = ({ setIsOverLay }: { setIsOverLay: (value: boolean) => void }) => {
 
     return;
   }
-  const { cart } = context;
+  const { cart, setIsBackDrop, } = context;
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -113,19 +111,10 @@ const Form = ({ setIsOverLay }: { setIsOverLay: (value: boolean) => void }) => {
         paymentMethod: checkOutDetail.paymentMethod,
       });
     }
-    alert("Order placed successfully!");
+    toast.success("Order placed successfully!");
 
-    await fetch("/api/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: checkOutDetail.email,
-        userName: checkOutDetail.userName,
-      }),
-    });
-
-    setIsOverLay(true);
-
+  
+    setIsBackDrop(true);
     setCheckOutDetail({
       userName: "",
       email: "",

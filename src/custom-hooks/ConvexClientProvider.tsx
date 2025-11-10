@@ -24,7 +24,7 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
 
       setTimeout(() => {
         router.push("/checkout");
-      },2000);
+      }, 2000);
       return [...prev, { ...product, price: product.price * quantity }];
     });
   };
@@ -44,6 +44,8 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
   };
 
   const [isNavBar, setIsNavBar] = useState<boolean>(false);
+  const [isBackDrop, setIsBackDrop] = useState<boolean>(false);
+    // const [isOverLay, setIsOverLay] = useState<boolean>(false);
 
   const handleNavBar = () => {
     setIsNavBar(true);
@@ -53,6 +55,9 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
     const navbar = document.querySelector(".navbar");
     const hamburger = document.querySelector(".hamburger");
     const cart = document.querySelector(".cart");
+    const modal = document.querySelector(".modal");
+
+    console.log(modal)
 
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -67,6 +72,10 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
       if (cart && !cart.contains(e.target as Node)) {
         setIsCart(false);
       }
+
+      if (modal && !modal.contains(e.target as Node)) {
+        setIsBackDrop(false);
+      }
     };
 
     window.addEventListener("click", handleClickOutside);
@@ -75,6 +84,8 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
       window.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  console.log("IsSetBackdrop",isBackDrop);
 
   return (
     <ConvexProvider client={convex}>
@@ -87,6 +98,9 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
           handleRemoveAllCart: handleRemoveAllCart,
           handleNavBar: handleNavBar,
           isNavBar: isNavBar,
+          isBackDrop: isBackDrop,
+          setIsBackDrop: setIsBackDrop,
+    
         }}
       >
         {children}
