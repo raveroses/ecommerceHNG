@@ -45,7 +45,7 @@ const ProductComponent = ({ product }: ProductComponentProps) => {
   });
 
   return (
-    <section className="my-[200px] flex flex-col gap-[50px] md:mx-[200px]">
+    <section className="md:my-[100px] my-[50px] flex flex-col gap-[50px] md:mx-[200px]">
       {productListing}
     </section>
   );

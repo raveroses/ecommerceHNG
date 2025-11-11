@@ -26,7 +26,7 @@ const FirstSection = ({ product }: independentProduct) => {
   console.log(cart);
   const totalPrice = product.price * quantity;
   return (
-    <section className="md:w-[1110px] md:h-[560px] w-full flex flex-col md:flex-row gap-[50px] my-[100px] items-center md:text-left text-center">
+    <section className="md:w-[1110px] md:h-[560px] w-full flex flex-col md:flex-row gap-[50px] md:my-[100px] my-5 items-center md:text-left text-center">
       <div className="md:w-[540px] w-full h-[560px] bg-[#f1f1f1]">
         <div className="w-[300px] h-[300px] relative overflow-hidden z-[30px] mx-auto my-[100px]">
           <Image src={product.image} alt="speaker-image" fill />
