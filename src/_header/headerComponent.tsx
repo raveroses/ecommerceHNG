@@ -29,7 +29,7 @@ const HeaderComponent = () => {
         </div>
 
         <div
-          className={`navbar ${isNavBar ? "block" : "hidden"} md:block bg-white md:bg-transparent md:w-auto w-[220px] md:h-auto h-[900px] md:static absolute left-[0px] top-[60px] md:p-auto p-5 `}
+          className={`navbar ${isNavBar ? "block" : "hidden"} md:block bg-white md:bg-transparent md:w-auto w-[220px] md:h-auto h-[900px] md:static absolute left-[0px] top-[60px] md:p-auto p-5 z-20 `}
         >
           <NavBar />
         </div>
